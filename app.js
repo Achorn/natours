@@ -9,6 +9,7 @@ const xss = require('xss-clean');
 const hpp = require('hpp');
 const cookieParser = require('cookie-parser');
 const compression = require('compression');
+const cors = require('cors');
 
 const app = express();
 const viewRouter = require('./routes/viewRoutes');
@@ -23,7 +24,16 @@ app.set('view engine', 'pug');
 app.set('views', path.join(__dirname, 'views')); //prevents multi-slash bug
 
 // 1) GLOBAL MIDDLEWARES
-//Serving static files
+// Implement CORS
+app.use(cors()); // Access-Control-Allow-Origin
+// api.natours.com -> natours.com (whitelisting)
+// app.use(cors({ origin: 'https://www.natours.com' }));
+
+app.options('*', cors());
+//can also only allow complex requests on whitelisted routes
+// app.options('api/v1/tours/:id', cors()); only tours can be deleted on CORS req
+
+// Serving static files
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Set Security HTTP headers

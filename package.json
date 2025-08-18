@@ -19,6 +19,7 @@
     "bcryptjs": "^3.0.2",
     "compression": "^1.8.1",
     "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
     "dotenv": "^17.2.0",
     "esbuild": "0.25.8",
     "express": "^4.21.2",
@@ -53,6 +54,6 @@
     "prettier": "^3.6.2"
   },
   "engines": {
-    "node": ">=10.0.0"
+    "node": "^10"
   }
 }
