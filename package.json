@@ -5,7 +5,8 @@
   "main": "app.js",
   "scripts": {
     "debug": "node --inspect server.js",
-    "start": "nodemon server.js",
+    "start": "node server.js",
+    "dev": "node server.js",
     "start:prod": "NODE_ENV=production nodemon server.js",
     "watch": "esbuild ./public/js/index.js --bundle --outfile=./public/js/bundle.js --watch",
     "build": "esbuild ./public/js/index.js --bundle --outfile=./public/js/bundle.js"
