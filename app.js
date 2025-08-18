@@ -27,7 +27,7 @@ app.set('views', path.join(__dirname, 'views')); //prevents multi-slash bug
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Set Security HTTP headers
-app.use(helmet({ contentSecurityPolicy: false }));
+app.use(helmet());
 // Further HELMET configuration for Security Policy (CSP)
 const scriptSrcUrls = ['https://unpkg.com/', 'https://tile.openstreetmap.org'];
 const styleSrcUrls = [
