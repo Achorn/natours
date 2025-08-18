@@ -57,16 +57,14 @@ const sendErrorProd = (err, req, res) => {
       .status(500)
       .json({ status: 'failed', message: 'Something went very wrong!' });
   }
-  console.log('poop 1');
   // RENDERED WEBSITE
-  console.log(err);
+  // console.log(err);
   //Operational, trusted error: send message to client
   if (err.isOperational) {
     return res
       .status(err.statusCode)
       .render('error', { title: 'something went wrong!', msg: err.message });
   }
-  console.log('poop 2');
   // Programing or other unknown error: don't leak details to client
   // 1) Log error
   console.error('ERROR 💥', err);

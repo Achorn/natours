@@ -8,8 +8,6 @@ module.exports = class Email {
   constructor(user, url) {
     this.to = user.email;
     this.firstName = user.name.split(' ')[0];
-    console.log(user.name);
-    console.log(this.firstName);
     this.url = url;
     this.from = `Jonas Schemtmann <${process.env.EMAIL_FROM}>`;
   }

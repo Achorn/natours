@@ -8,6 +8,7 @@ const ExpressMongoSanitize = require('express-mongo-sanitize');
 const xss = require('xss-clean');
 const hpp = require('hpp');
 const cookieParser = require('cookie-parser');
+const compression = require('compression');
 
 const app = express();
 const viewRouter = require('./routes/viewRoutes');
@@ -91,10 +92,11 @@ app.use(
   }),
 );
 
+app.use(compression()); //compresses all text sent to client
+
 //test middleware
 app.use((req, res, next) => {
   req.requestTime = new Date().toISOString();
-  // console.log(req.headers);
   next();
 });
 

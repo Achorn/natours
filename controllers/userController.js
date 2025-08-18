@@ -18,7 +18,6 @@ const factory = require('./handlerFactory');
 const multerStorage = multer.memoryStorage();
 
 const multerFilter = (req, file, cb) => {
-  console.log('multer filter');
   //test if uploaded file is an image
   if (file.mimetype.startsWith('image')) {
     cb(null, true);
@@ -71,7 +70,6 @@ exports.updateMe = catchAsync(async (req, res, next) => {
   }
   // 2) Filter out unwanted fieldNames
   const filteredBody = filterObj(req.body, 'name', 'email');
-  // console.log({ 're1.file': req.file });
   if (req.file) filteredBody.photo = req.file.filename;
   // 3) Update user document
   const updatedUser = await User.findByIdAndUpdate(req.user.id, filteredBody, {

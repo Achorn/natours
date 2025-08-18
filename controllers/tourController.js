@@ -10,7 +10,6 @@ const factory = require('./handlerFactory');
 const multerStorage = multer.memoryStorage();
 
 const multerFilter = (req, file, cb) => {
-  console.log('multer filter');
   //test if uploaded file is an image
   if (file.mimetype.startsWith('image')) {
     cb(null, true);
@@ -29,8 +28,6 @@ exports.uploadTourImages = upload.fields([
 ]);
 
 exports.resizeTourImages = catchAsync(async (req, res, next) => {
-  console.log(req.files);
-
   if (req.files.imageCover === undefined || !req.files.images === undefined)
     return next();
 
@@ -55,7 +52,6 @@ exports.resizeTourImages = catchAsync(async (req, res, next) => {
       req.body.images.push(fileName);
     }),
   );
-  console.log(req.body);
   next();
 });
 exports.aliasTopTours = (req, res, next) => {
