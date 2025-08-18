@@ -52,3 +52,11 @@ process.on('uncaughtException', (err) => {
     process.exit(1);
   });
 });
+
+// SIGTERM is used to stop a program from running
+process.on('SIGTERM', () => {
+  console.log('✋ SIGTERM RECIEVED. Shutting down gracefully');
+  server.close(() => {
+    console.log('💥 Process terminated');
+  });
+});

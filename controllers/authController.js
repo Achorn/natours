@@ -20,6 +20,10 @@ const createSendToken = (user, statusCode, res) => {
     ),
     httpOnly: true,
   };
+
+  //comment only for heroku (I am using render)
+  // if(req.secure || req.headers('x-forwarded-proto)==='https')
+
   if (process.env.NODE_ENV === 'production') cookieOptions.secure = true;
 
   res.cookie('jwt', token, cookieOptions);
