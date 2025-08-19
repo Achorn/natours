@@ -20098,8 +20098,8 @@
       const { tourId } = e.target.dataset;
       bookTour(tourId);
     });
-  var alertMessage = document.querySelector("bokdy").dataset.alert;
-  if (alert) {
+  var alertMessage = document.querySelector("body").dataset.alert;
+  if (alertMessage) {
     showAlert("success", alertMessage, 15);
   }
 })();
