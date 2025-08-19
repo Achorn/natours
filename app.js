@@ -40,7 +40,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Set Security HTTP headers
 app.use(helmet());
 // Further HELMET configuration for Security Policy (CSP)
-const scriptSrcUrls = ['https://unpkg.com/', 'https://tile.openstreetmap.org'];
+const scriptSrcUrls = [
+  'https://unpkg.com/',
+  'https://tile.openstreetmap.org',
+  'https://js.stripe.com/v3/',
+];
 const styleSrcUrls = [
   'https://unpkg.com/',
   'https://tile.openstreetmap.org',
