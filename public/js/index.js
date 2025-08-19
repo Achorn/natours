@@ -3,6 +3,7 @@ import { login, logout } from './login';
 import { updateSettings } from './updateSettings';
 import { displayMap } from './leafletMap';
 import { bookTour } from './stripe';
+import { showAlert } from './alerts';
 
 // DOM ELEMENTS
 const leafletMap = document.getElementById('map');
@@ -66,3 +67,8 @@ if (bookBtn)
     const { tourId } = e.target.dataset;
     bookTour(tourId);
   });
+
+const alertMessage = document.querySelector('bokdy').dataset.alert;
+if (alertMessage) {
+  showAlert('success', alertMessage, 15);
+}

@@ -19930,11 +19930,11 @@
     const el = document.querySelector(".alert");
     if (el) el.parentElement.removeChild(el);
   };
-  var showAlert = (type, msg) => {
+  var showAlert = (type, msg, time = 7) => {
     hideAlert();
     const markup = `<div class="alert alert--${type}">${msg}</div>`;
     document.querySelector("body").insertAdjacentHTML("afterbegin", markup);
-    window.setTimeout(hideAlert, 5e3);
+    window.setTimeout(hideAlert, time * 1e3);
   };
 
   // public/js/login.js
@@ -20098,6 +20098,10 @@
       const { tourId } = e.target.dataset;
       bookTour(tourId);
     });
+  var alertMessage = document.querySelector("bokdy").dataset.alert;
+  if (alert) {
+    showAlert("success", alertMessage, 15);
+  }
 })();
 /*! Bundled license information:
 
